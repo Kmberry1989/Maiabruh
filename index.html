@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cass County Legal Action Plan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        .controls {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #playBtn { background-color: #2b78e4; color: white; }
+        #pauseBtn { background-color: #f1c40f; color: white; }
+        #stopBtn { background-color: #e74c3c; color: white; }
+        button:hover { opacity: 0.9; }
+        
+        .content-box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        h1 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        h3 { color: #16a085; }
+        
+        /* Highlighting style for reading along */
+        .sentence {
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background 0.1s ease;
+        }
+        .sentence:hover {
+            background-color: #f0f3f4;
+        }
+        .highlight {
+            background-color: #fff2a3 !important;
+            font-weight: 500;
+        }
+        .directory-box {
+            background-color: #ebf5fb;
+            border-left: 5px solid #2980b9;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button id="playBtn" onclick="startReading()">▶ Play / Resume</button>
+        <button id="pauseBtn" onclick="pauseReading()">⏸ Pause</button>
+        <button id="stopBtn" onclick="stopReading()">⏹ Stop</button>
+    </div>
+
+    <div class="content-box" id="textContainer">
+        <h1>Action Plan to Legally Remove Maia From Your Home</h1>
+        
+        <p>
+            <span class="sentence">Because Maia was recently violated for probation, she is under intense judicial scrutiny.</span>
+            <span class="sentence">However, her court date is not until June twenty-third.</span>
+            <span class="sentence">You do not have to wait for the criminal court to act.</span>
+            <span class="sentence">You can take immediate civil action at the Cass County Courthouse tomorrow morning to protect your home.</span>
+        </p>
+
+        <div class="directory-box">
+            <h2>Cass County Courthouse Directory</h2>
+            <p>
+                <span class="sentence">**Where to go:** Cass County Government Building, located at 200 Court Park, Logansport, Indiana.</span><br>
+                <span class="sentence">**Hours:** Monday through Friday, 8:00 AM to 4:00 PM.</span><br>
+                <span class="sentence">**Main Clerk Phone Number:** (574) 753-7740.</span>
+            </p>
+        </div>
+
+        <h2>Step 1: File for a Civil Protective Order (Room 407)</h2>
+        <p>
+            <span class="sentence">Go directly to Room 407 in the courthouse, which is the Clerk of the Circuit Court.</span>
+            <span class="sentence">Ask the deputy clerk at the desk for a "Petition for an Order of Protection."</span>
+            <span class="sentence">This is a completely civil action and does not require you to press criminal charges.</span>
+            <span class="sentence">You will submit the camera footage showing Maia assaulting your husband and forcing her way back into the house.</span>
+            <span class="sentence">Under Indiana Code 34-26-5, a judge can review this evidence immediately and sign an emergency order.</span>
+            <span class="sentence">This order will authorize law enforcement to physically remove Maia from the property within twenty-four to forty-eight hours, completely overriding her residency status.</span>
+        </p>
+
+        <h2>Step 2: File for an Emergency Possessory Order (Room 103)</h2>
+        <p>
+            <span class="sentence">Next, go to Room 103, which is the Small Claims and Civil Filing division.</span>
+            <span class="sentence">Ask the clerk to file an "Emergency Possessory Order" under Indiana Code 32-31-6.</span>
+            <span class="sentence">This law is specifically designed for emergency evictions when a guest or tenant is creating an immediate physical hazard.</span>
+            <span class="sentence">Your video footage of her forcing her way through the door and allowing multiple unauthorized strangers into the home at night provides the exact proof a judge needs.</span>
+            <span class="sentence">By law, an emergency hearing must be scheduled within days, bypassing the standard thirty-day eviction wait time.</span>
+        </p>
+
+        <h2>Step 3: Contact Adult Protective Services</h2>
+        <p>
+            <span class="sentence">Call Adult Protective Services Unit 5 directly at (574) 753-5808.</span>
+            <span class="sentence">Inform them that you are elderly residents in Logansport being subjected to ongoing verbal abuse and dangerous physical hazards.</span>
+            <span class="sentence">Explain that the police are refusing to remove her without a court order, and that you feel unsafe.</span>
+            <span class="sentence">APS investigators have a direct pipeline to local judges and can actively intervene to help fast-track your protection order.</span>
+        </p>
+
+        <h2>Summary of Strategy</h2>
+        <p>
+            <span class="sentence">In conclusion, do not rely on local police dispatch to solve this domestic dispute, as they are bound by tenant residency laws.</span>
+            <span class="sentence">Instead, take control by utilizing the civil court systems in Room 407 and Room 103 tomorrow morning.</span>
+            <span class="sentence">Your camera footage of the assault, the break-in, and the late-night strangers is the absolute legal key to forcing her immediate removal.</span>
+        </p>
+    </div>
+
+    <script>
+        let synth = window.speechSynthesis;
+        let sentences = document.querySelectorAll('.sentence');
+        let currentIndex = 0;
+        let utterance = null;
+
+        // Prepare sentences with IDs
+        sentences.forEach((sentence, index) => {
+            sentence.setAttribute('id', 's_' + index);
+            sentence.addEventListener('click', () => {
+                stopReading();
+                currentIndex = index;
+                startReading();
+            });
+        });
+
+        function startReading() {
+            if (synth.speaking && synth.paused) {
+                synth.resume();
+                return;
+            }
+            
+            if (currentIndex >= sentences.length) {
+                currentIndex = 0;
+            }
+
+            speakSentence();
+        }
+
+        function speakSentence() {
+            if (currentIndex >= sentences.length) {
+                stopReading();
+                return;
+            }
+
+            // Remove previous highlights
+            sentences.forEach(s => s.classList.remove('highlight'));
+            
+            // Highlight current sentence
+            let currentElem = document.getElementById('s_' + currentIndex);
+            currentElem.classList.add('highlight');
+            currentElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            utterance = new SpeechSynthesisUtterance(currentElem.innerText);
+            
+            // Adjust rate for clear reading speed for seniors
+            utterance.rate = 0.9; 
+
+            utterance.onend = function() {
+                currentIndex++;
+                speakSentence();
+            };
+
+            utterance.onerror = function() {
+                stopReading();
+            };
+
+            synth.speak(utterance);
+        }
+
+        function pauseReading() {
+            if (synth.speaking && !synth.paused) {
+                synth.pause();
+            }
+        }
+
+        function stopReading() {
+            synth.cancel();
+            sentences.forEach(s => s.classList.remove('highlight'));
+        }
+    </script>
+</body>
+</html>
